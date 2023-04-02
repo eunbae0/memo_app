@@ -11,6 +11,7 @@
       <header>
         <h1>Memo</h1>
         <svg
+          id="list"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -26,14 +27,17 @@
         </svg>
       </header>
 
-      <textarea name="메모를 입력하세요" id="" cols="30" rows="10"></textarea>
+      <div class="inputWrapper">
+        <textarea name="메모를 입력하세요" cols="30" rows="10" maxlength="200">
+        </textarea>
+        <p class="lengthWrapper"><span id="length">0</span> / 200</p>
+      </div>
+
       <section>
-        <div><span>ja;lsdkjf;alewrjg;oaerhg;oajr;lfkja</span></div>
-        <div><span>ja;lsdkjf;alewrjg;oaerhg;oajr;lfkja</span></div>
-        <div><span>ja;lsdkjf;alewrjg;oaerhg;oajr;lfkja</span></div>
-        <div><span>ja;lsdkjf;alewrjg;oaerhg;oajr;lfkja</span></div>
-        <div><span>ja;lsdkjf;alewrjg;oaerhg;oajr;lfkja</span></div>
-        <div><span>ja;lsdkjf;alewrjg;oaerhg;oajr;lfkja</span></div>
+        <div id="1">memo</div>
+        <div id="2">memo</div>
+        <div id="3">memo</div>
+        <button id="add">+</button>
       </section>
     </div>
     <script src="./main.js"></script>
