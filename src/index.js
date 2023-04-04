@@ -2,23 +2,15 @@ import _ from 'lodash';
 import './reset.css';
 import './style.scss';
 
-// function showLength() {
-const element = document.createElement('div');
-// // 이제 Lodash를 스크립트로 가져왔습니다.
-// element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-// return element;
-const textarea = document.getElementsByTagName('textarea')[0];
-const length = document.getElementById('length');
-textarea.addEventListener('input', (e) => {
-  length.innerHTML = textarea.value.length;
-});
-// }
+import Length from './Length.js';
+const length = new Length();
+length.setLiveLength();
 
 let currentId = '';
 
 // function addMemo() {
 const addButton = document.getElementById('add');
-const section = document.getElementsByTagName('section')[0];
+const section = document.getElementById('memoWrapper');
 addButton.addEventListener('click', () => {
   const currentMemoCount = section.childElementCount - 1;
   const newMemo = document.createElement('div');
@@ -33,7 +25,8 @@ addButton.addEventListener('click', () => {
       (child) => child.nodeName === 'DIV' && child.classList.remove('current')
     );
     newMemo.classList.add('current');
-    length.innerHTML = textarea.value.length;
+    length.setLength();
+    // textarea.focus();
   });
 
   // toggle
@@ -44,6 +37,8 @@ addButton.addEventListener('click', () => {
     (child) => child.nodeName === 'DIV' && child.classList.remove('current')
   );
   newMemo.classList.add('current');
+  // textarea.focus();
+  length.setLength();
   section.insertBefore(newMemo, addButton);
 });
 // }
@@ -65,7 +60,8 @@ section.childNodes.forEach(
         (child) => child.nodeName === 'DIV' && child.classList.remove('current')
       );
       child.classList.add('current');
-      length.innerHTML = textarea.value.length;
+      length.setLength();
+      // textarea.focus();
     })
 );
 
